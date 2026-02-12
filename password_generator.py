@@ -20,3 +20,14 @@ class PasswordGenerator:
             characters += digits
         if use_symbols:
             characters += symbols
+
+        if characters:
+            password = ''.join(random.choice(characters) for _ in range(length))
+            return password
+        else:
+            return "Character set not selected."
+
+        
+
+        
+        
