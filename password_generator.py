@@ -26,6 +26,11 @@ class PasswordGenerator:
             return password
         else:
             return "Character set not selected."
+        
+    def save_password_to_file(self, password, filename):
+        with open(filename, "w") as file:
+            file.write(password)
+
 
         
 
