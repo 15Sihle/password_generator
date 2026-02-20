@@ -1,60 +1,31 @@
 import random
-import string
 
-class PasswordGenerator:
-    def __init__(self):
-        pass
+def password_generator():
+    
+    letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    numbers = ["1","2","3","4","5","6","7","8","9", "0"]
+    symbols = ["!", "@", "#", "%", "&", "*", "?", "/", ">", "<"]
 
-    def generate_password(self, length, use_uppercase, use_lowercase, use_digits, use_symbols):
-        uppercase_letters = string.ascii_uppercase
-        lowercase_letters = string.ascii_lowercase
-        digits = string.digits
-        symbols = string.punctuation
+    new_passsword = []
 
-        characters = ""
-        if use_uppercase:
-            characters += uppercase_letters
-        if use_lowercase:
-            characters += lowercase_letters
-        if use_digits:
-            characters += digits
-        if use_symbols:
-            characters += symbols
+    letters_input = int(input("how many letters do you want in your password "))
+    numbers_input = int(input("how many numbers do you want in your password "))
+    symbols_input = int(input("how many symbols do you want in your password "))
 
-        if characters:
-            password = ''.join(random.choice(characters) for _ in range(length))
-            return password
-        else:
-            return "Character set not selected."
-        
-    def save_password_to_file(self, password, filename):
-        with open(filename, "w") as file:
-            file.write(password)
+    for i in range(letters_input):
+        new_passsword.append(random.choice(letters))
 
-    def main(self):
-        print("Random Password Generator")
+    for i in range(numbers_input):
+        new_passsword.append(random.choice(numbers))
 
-        length = int(input("Password Length: "))
+    for i in range(symbols_input):
+        new_passsword.append(random.choice(symbols))
+    
+    print()
+    print("Your new password is: ")
+    print("".join(new_passsword))
 
-        use_uppercase = input("Use Uppercase Letters? (Y/N): ").lower() == "y"
-        use_lowercase = input("Use Lowercase Letters? (Y/N): ").lower() == "y"
-        use_digits = input("Use Digits? (Y/N): ").lower() == "y"
-        use_symbols = input("Use Symbols? (Y/N): ").lower() == "y"
-
-        password = self.generate_password(length, use_uppercase, use_lowercase, use_digits, use_symbols)
-
-        print("\nGenerated Password:", password)
-
-        save_to_file = input("Save the password to a file? (Y/N): ").lower() == "y"
-        if save_to_file:
-            filename = input("Enter the filename: ")
-            self.save_password_to_file(password, filename)
-            print(f"Password saved to {filename}")
-
-if __name__ == "__main__":
-    password_generator = PasswordGenerator()
-    password_generator.main()
-
+password_generator()
 
         
 
