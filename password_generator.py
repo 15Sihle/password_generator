@@ -23,6 +23,7 @@ def password_generator():
     
     print()
     print("Your new password is: ")
+    random.shuffle(new_passsword)
     print("".join(new_passsword))
 
 password_generator()
