@@ -1,4 +1,5 @@
 import random
+import sys
 
 def password_generator():
     
@@ -7,10 +8,18 @@ def password_generator():
     symbols = ["!", "@", "#", "%", "&", "*", "?", "/", ">", "<"]
 
     new_passsword = []
+    
+    try:
 
-    letters_input = int(input("how many letters do you want in your password "))
-    numbers_input = int(input("how many numbers do you want in your password "))
-    symbols_input = int(input("how many symbols do you want in your password "))
+        letters_input = int(input("how many letters do you want in your password "))
+        numbers_input = int(input("how many numbers do you want in your password "))
+        symbols_input = int(input("how many symbols do you want in your password "))
+
+
+    except ValueError:
+        print("strictly insert a number, nothing else")
+        sys.exit(1)
+        
 
     for i in range(letters_input):
         new_passsword.append(random.choice(letters))
