@@ -19,6 +19,10 @@ def password_generator():
     except ValueError:
         print("strictly insert a number, nothing else")
         sys.exit(1)
+
+    if letters_input or numbers_input or symbols_input <= 0:
+        print("strictly insert a number bigger than 0")
+        sys.exit(1)
         
 
     for i in range(letters_input):
