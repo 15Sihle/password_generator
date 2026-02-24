@@ -28,12 +28,10 @@ def password_generator():
         print("strictly insert a number bigger than 0")
         sys.exit(1)
 
-
     if symbols_input <= 0:
         print("strictly insert a number bigger than 0")
         sys.exit(1)
     
-
     for i in range(letters_input):
         new_passsword.append(random.choice(letters))
 
